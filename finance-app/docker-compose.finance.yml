@@ -1,5 +1,6 @@
 networks:
   app-net:
+    name: npm_app-net  
     external: true
 
 services:
@@ -10,6 +11,6 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./finance.db:/app/finance.db  # Menyimpan data database agar tidak hilang saat container restart
+      - ./finance.db:/app/finance.db  
     networks:
       - app-net
