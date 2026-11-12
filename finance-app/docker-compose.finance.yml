@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  app-net:
+    external: true
+
+services:
+  finance-api:
+    build: .
+    container_name: finance-tracker-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./finance.db:/app/finance.db  # Menyimpan data database agar tidak hilang saat container restart
+    networks:
+      - app-net
